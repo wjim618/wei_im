@@ -23,6 +23,7 @@
 				<view :class="PageCur==='mine'?'text-green':'text-gray'">我的</view>
 			</view>
 		</view>
+		<view class="foot-placeholder"></view>
 	</view>
 </template>
 
