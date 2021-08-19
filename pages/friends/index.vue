@@ -7,13 +7,13 @@
     <view class="cu-bar bg-white search fixed" :style="[{top:CustomBar + 'px'}]">
       <view class="search-form round">
         <text class="cuIcon-search"></text>
-        <input type="text" placeholder="输入搜索的关键词" confirm-type="search"></input>
+        <input type="text" placeholder="输入搜索的关键词" confirm-type="search">
       </view>
       <view class="action">
         <button class="cu-btn bg-gradual-green shadow-blur round">搜索</button>
       </view>
     </view>
-    <scroll-view scroll-y class="indexes" :scroll-into-view="'indexes-'+ listCurID"
+    <scroll-view scroll-y class="indexes" :scroll-into-view="'indexes-'+ listCurID" :style="[{height:'calc(100vh - '+ CustomBar + 'px - 50px)'}]"
                  :scroll-with-animation="true" :enable-back-to-top="true">
       <block v-for="(item,index) in list" :key="index">
         <view :class="'indexItem-' + item.name" :id="'indexes-' + item.name" :data-index="item.name">
@@ -34,7 +34,7 @@
     </scroll-view>
     <view class="indexBar" :style="[{height:'calc(100vh - ' + CustomBar + 'px - 50px)'}]">
       <view class="indexBar-box" @touchstart="tStart" @touchend="tEnd" @touchmove.stop="tMove">
-        <view class="indexBar-item" v-for="(item,index) in list" :key="index" :id="index" @touchstart="getCur" @touchend="setCur"> {{item.name}}</view>
+        <view class="indexBar-item text-shadow" :class="curIndexNum===index ? 'text-cyan' : ''" v-for="(item,index) in list" :key="index" :id="index" @touchstart="getCur" @touchend="setCur" @tap="indexClick(index)"> {{item.name}}</view>
       </view>
     </view>
     <!--选择显示-->
@@ -50,6 +50,7 @@
         hidden: true,
         listCurID: '',
         list: [],
+        curIndexNum: '',
         listCur: '',
       };
     },
@@ -115,7 +116,10 @@
             return false
           }
         }
-      }
+      },
+      indexClick(index){
+        this.curIndexNum = index
+      },
     }
   }
 </script>
@@ -124,6 +128,7 @@
 
   .indexes {
     position: relative;
+    margin-top: 100rpx;
   }
 
   .indexBar {
@@ -153,7 +158,6 @@
     align-items: center;
     justify-content: center;
     font-size: 24upx;
-    color: #888;
   }
 
   movable-view.indexBar-item {

@@ -49,7 +49,7 @@
         </view>
       </view>
       <view class="cu-item" :class="modalName==='move-box-'+ index?'move-cur':''" v-for="(item,index) in friendList" :key="index"
-            @touchstart="ListTouchStart" @touchmove="ListTouchMove" @touchend="ListTouchEnd" :data-target="'move-box-' + index">
+            @touchstart="ListTouchStart" @touchmove="ListTouchMove" @touchend="ListTouchEnd" :data-target="'move-box-' + index" @tap="toChat">
         <view class="cu-avatar radius lg" :style="[{ backgroundImage: 'url(' + item.avatar + ')' }]">
         </view>
         <view class="content">
@@ -137,6 +137,11 @@
 
     },
     methods: {
+      toChat(e) {
+        uni.navigateTo({
+        	url: '../friends/chat'
+        })
+      },
       isLoading(e) {
         this.isLoad = e.detail.value;
       },
