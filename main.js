@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App'
 
 // 导入自定义头部组件
-import cuCustom from './static/css/colorui/components/cu-custom.vue'
+import cuCustom from './css/colorui/components/cu-custom.vue'
 Vue.component('cu-custom',cuCustom)
 
 // 消息列表组件

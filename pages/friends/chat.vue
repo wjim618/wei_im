@@ -54,7 +54,7 @@
             <text class="cuIcon-warnfill text-red text-xxl"></text> <text class="text-sm margin-left-sm">翻译错误</text>
           </view>
         </view>
-        <view class="date">13:23</view>
+        <view class="date">2021-09-18 13:23</view>
       </view>
     </view>
 

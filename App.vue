@@ -111,7 +111,10 @@
 </script>
 
 <style>
-  @import "static/css/colorui/main.css";
-  @import "static/css/colorui/icon.css";
-  @import "static/css/app.css";
+  @import "css/colorui/main.css";
+  @import "css/colorui/icon.css";
+  @import "css/app.css";
+  @import url("css/nav.css");
+  @import url("css/tuniao.css");
+  @import url("css/label.css");
 </style>
